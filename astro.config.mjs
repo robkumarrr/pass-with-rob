@@ -14,11 +14,19 @@ export default defineConfig({
 					label: 'PASS Session Work',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Sept 25, 2023', link: '/guides/09_25_2023/' },
+						{ label: 'Sept 25, 2023', link: '/session_code/09_25_2023/' },
 						{ label: 'Sept 29, 2023', link: ''}
 					],
 				}
 			],
+			logo: {
+				light: './public/favicon.svg',
+				dark: './public/favicon_dark.svg'
+				// dark: ''
+			},
+			customCss: [
+				'./src/styles/custom.css'
+			]
 		}),
 	],
 });

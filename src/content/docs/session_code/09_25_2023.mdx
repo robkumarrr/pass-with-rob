@@ -2,7 +2,8 @@
 title: Sept 25, 2023
 description: PASS Session work from Monday, Sept 25, 2023.
 ---
-## Coding Bat - Diff21
+## Coding Bat - diff21
+### What's the problem?
 
 During this session, we worked through a problem from [codingbat.com](https://codingbat.com/python). 
 The problem was the "diff21" from the warm-up section. This is a great place to 
@@ -12,10 +13,84 @@ This problem asks us to create a function that returns the difference between an
 and the number <code>21</code>. This code must return *double* the value if <code>n > 21</code>.
 
 ```python
-    def diff21(n):
-        # code goes here
-        return #
+def diff21(n):
+    # code goes here
+    return #
 ```
-## Further reading
+### How do we get started?
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+It's quite simple! Let's start by answering the question *without* code! If we can understand the problem on paper, 
+then we are more likely to be able to code this out properly on our first attempt. 
+
+Let's begin with some pseudocode. 
+
+Before you check out what I wrote down below, try to come up with a solution on your own. 
+
+
+<details>
+<summary>✅ **My Pseudocode - Try it on your own first!**</summary>
+```python
+    # IF a NUMBER is LESS THAN OR EQUAL TO 21 
+    #   then RETURN 21 minus the NUMBER
+    # ELSE IF a NUMBER is GREATER THAN 21 
+    #   then RETURN 21 minus the NUMBER multiplied by 2
+```
+</details>
+
+
+Was your solution the same? Maybe different? How different? Do we reach the same answer at the end? It's 
+possible that we reached the same conclusion with different paths. That is **okay**! Coding is an
+adventure and it *might* not be perfect on the first try. 
+
+### Time to Code
+
+So, now that we have a solution let's try to code this out. 
+
+We will need to use an "if" statement in this problem to provide a couple of different conditional routes.
+In Python, we first type the word "if" then it is followed by a statement and lastly, a colon. If your 
+program requires extra conditions, you can follow-up the "if" with "elif" and/or "else" on the next lines.
+
+Here's an example:
+
+```python
+if a > b:
+    # code block goes here -- don't forget to indent! 
+    # IDLE should do this for you automatically
+elif b > a:
+    # code block goes here
+else:
+    # code block goes here
+```
+
+Now that we are becoming more familiar with Python code blocks, let's try to solve our problem. The solution
+code is below. Give it a try on [codingbat.com](https://codingbat.com/python) and see if you can solve this 
+problem on your own before checking out my code.
+
+<details>
+<summary>✅ **My Solution - Try it on your own first!**</summary>
+```python
+def diff21(n):
+    diff = 0
+    if n <= 21:
+        diff = abs(n - 21)
+    else:
+        diff = abs(n - 21) * 2
+    return diff
+```
+</details>
+
+Once you solve this question, think about how you can optimize it. My solution is certainly not the fastest way to 
+complete the problem. 
+
+After some trial and error, I eventually got my code down to one line! 
+
+<details>
+<summary>✅ **My Solution V2**</summary>
+It's not pretty, but it gets the job done.
+```python
+def diff21(n):
+    return abs(n - 21) if n <= 21 else abs(n - 21) * 2
+```
+</details>
+
+#### Thanks for checking out the session notes! See you next time.
