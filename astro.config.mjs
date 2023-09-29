@@ -15,6 +15,10 @@ export default defineConfig({
 					autogenerate: { directory: 'information'},
 				},
 				{
+					label: 'Study Tools',
+					autogenerate: { directory: 'study_tools'},
+				},
+				{
 					label: 'PASS Session Work',
 					autogenerate: { directory: 'session_code'},
 				},
