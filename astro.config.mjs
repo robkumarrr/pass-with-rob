@@ -19,7 +19,7 @@ export default defineConfig({
 					autogenerate: { directory: 'study_tools'},
 				},
 				{
-					label: 'PASS Session Work',
+					label: 'PASS Sessions - Fall 2023',
 					autogenerate: { directory: 'session_code'},
 				},
 			],
