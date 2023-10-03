@@ -5,11 +5,12 @@ sidebar:
     label: About Rob
     order: 2
 ---
+import { Image } from 'astro:assets';
+import rk_profile from '../../../../src/assets/rk_profile.png';
 
-<p align="center">
-    {/* <img width="50%"  alt="picture of Rob Kumar" title="Rob Kumar" src="../../src/assets/rk_profile.png"/> */}
-    <img width="50%"  alt="picture of Rob Kumar" title="Rob Kumar" src="https://pass-with-rob.vercel.app/_astro/rk_profile.04bf39c7_2qzd1n.webp"/>
-</p>
+<div align="center">
+    <Image src={rk_profile} alt="picture of Rob Kumar" title="picture of Rob Kumar" width="300vw" />
+</div>
 
 #### Hello! I'm Rob. 
 

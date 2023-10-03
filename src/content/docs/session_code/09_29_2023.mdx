@@ -5,12 +5,123 @@ sidebar:
     label: Sept 29 - IPO & Flowcharts
     order: 2
     # hidden: true
-    badge:
-        text: New
-        variant: caution
+    # badge:
+    #     text: New
+    #     variant: caution
 ---
-## IPO & Flowcharts
-### 
+import { Image } from 'astro:assets';
+import flowchart from '../../../../src/assets/09_29_2023_flowchart.jpg';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
+### IPO Basics
+
+**Input, Processing, and Output - or IPO for short.** This is the foundation of programming, and you'll be using these 
+concepts all the time in your upcoming semesters. 
+
+
+<Tabs>
+    <TabItem label="Input">
+        What information or data are you given?
+        
+        Provide a description of these variables and consider specifics such as the data type, their range, etc. 
+        Essentially, make sure you state the assumptions about the data.
+    </TabItem>
+    <TabItem label="Processing">
+        What must you do with the information/data? This is where you create the algorithm.
+
+        Create a detailed step-by-step process with clear instructions for how the data is handled by the system. 
+        Explain all steps from the start (inputting data) to the end (outputting data).
+    </TabItem>
+    <TabItem label="Output">
+        Where are your deliverables? 
+
+        This could be a variety of things, perhaps it's a single value, or perhaps it's a string, but regardless,
+        there is an output.
+    </TabItem>
+</Tabs>
+
+### IPO for a Flowchart
+
+<div align="center">
+    <Image src={flowchart} alt="picture of a flow chart" title="flowchart"/>
+</div>
+
+The flowchart seen on this page is what we went through during the PASS session. From this flowchart, 
+what are the inputs and outputs? 
+
+<details>
+<summary>💡 **Reveal Input/Output Solution - Try it on your own first!**</summary>
+```
+INPUTS:
+The variable named "n" is from user input.
+An argument could be made that "sum" and "count" are considered inputs.
+
+OUTPUTS:
+The variable named "sum"
+```
+</details>
+
+How would you write out the *pseudocode* for the processing for your IPO chart?
+
+:::tip[Pseudocode]
+Describing our algorithm using a cross between code and plain english. 
+
+For example, if we have some code such as:
+
+```python
+def add_nums(num1, num2):
+    return num1 + num2
+```
+
+We can pseudocode something like:
+
+```
+ADD num1 and num2
+RETURN sum of num1 and num2
+```
+:::
+
+<details>
+<summary>💡 **Reveal Processing Solution - Try it on your own first!**</summary>
+```
+PROCESSING:
+1) SET sum to 0
+2) SET count to 0
+3) ASK USER for a number and SET n = user input
+4) ADD n to sum
+5) ADD 1 to count
+6) REPEAT from STEP 3 to STEP 5 until COUNT >=
+7) DISPLAY sum total to the user
+```
+</details>
+
+Try putting the IPO together into a table on your own. 
+
+### Tracing the Flowchart
+
+During this session, we also traced all of the variables in the flowchart. *Tracing* means that
+we are going to track all of the changes and actions that occur in a flow chart. 
+
+I'll start you off, and then you carry on with the remainder of the trace: 
+
+```
+1) start
+2) sum = 0, count = 0
+3) USER INPUT - n = 13 (You can pick ANY number you want - students in the session picked 13)
+4) ...
+```
+
+<details>
+<summary>💡 **Reveal the Full Trace - Try it on your own first!**</summary>
+```
+4) sum = sum + 13 ---> sum = 0 + 13
+   count = count + 1 ---> count = 0 + 1 
+5) count < 5 = TRUE 
+6) USER INPUT - n = 10 (You can pick ANY number you want here, like Step 3)
+7) REPEAT STEPS UNTIL YOU HAVE EXITED THE LOOP
+...
+x) print sum
+```
+</details>
 
 #### Thanks for checking out the session notes! See you next time.

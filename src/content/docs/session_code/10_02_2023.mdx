@@ -1,13 +1,128 @@
 ---
-title: Oct 2, 2023 - 
+title: Oct 2, 2023 - Input & Functions
 description: PASS Session work from Monday, Oct 2, 2023.
 sidebar:
-    label: Oct 2 - 
+    label: Oct 2 - Input & Functions
     order: 3
     # hidden: true
+    badge:
+        text: New
+        variant: caution
 ---
-## 
-### 
+### The Task 
+During this session we worked on a simple function that has 3 integer parameters and returns the
+sum of those values. We want to access this function after first receiving 3 integer inputs from 
+the user, then we will pass those variables to the function as arguments. To finish, we will print
+the function output.
 
+### Anatomy of a Function
+
+So, to define a function we must start with the key word of <code>def</code> which is then followed
+by the <code>function_name</code> (notice how there are no spaces in the function name) and lastly,
+the parameters the function may have. The parameters are held in parentheses immediately after 
+naming the function. Do NOT forget the colon (<code>:</code>) after the parameter parentheses.
+
+```python
+def function_name(arg1, arg2, arg3):
+    # function code block goes here
+```
+
+### Inputs 
+
+Getting an input from a user is fairly straightforward, but this will not save the input anywhere.
+
+```python
+input("Enter a number: ")
+```
+
+Saving that input to a variable can be accomplished like so:
+
+```python
+user_input = input("Enter a number: ") 
+```
+
+Notice how I assign the <code>user_input</code> variable the input from the <code>input</code> function.  
+
+### Function to Add 3 Numbers
+
+Before we get ahead of ourselves and create a dialogue with the user, let's start by defining our function. 
+
+<details>
+<summary>💡 **Reveal Function Solution - Try it on your own first!**</summary>
+```python
+def addThreeNumbers(num1, num2, num3):
+    return num1 + num2 + num3
+```
+</details>
+
+How did yours look? If it wasn't the same, that's OKAY! But, test your function to see if it returns the correct
+values. An alternate version may have a variable called <code>added_values</code> which gets <code>num1, num2, and num3</code>
+added to it, then you may just <code>return</code> that variable.
+
+
+### Implementing User Input with the Function
+
+Let's create a nice-looking dialogue for the user so they can interact with the program. You can check out my full solution
+below, but make sure you give this an honest attempt before looking! Use all of your resources (course notes, W3Schools etc.).
+
+<details>
+<summary>💡 **Reveal Code Solution - Try it on your own first!**</summary>
+```python
+# Functions
+def addThreeNumbers( num1, num2, num3 ):
+    return num1 + num2 + num3
+
+# Main Method
+print("The following code will prompt you to enter 3 values")
+
+user_input_1 = input( "Enter first number: " ) # get first number
+user_input_2 = input( "Enter second number: " ) # get second number
+user_input_3 = input( "Enter third number: " ) # get third number
+
+print(addThreeNumbers(user_input_1, user_input_2, user_input_3))
+```
+</details>
+
+:::tip[Get Descriptive, Comment Your Code and Make it Look Good!]
+Name your variables meaningfully! Look at my solution above, you can clearly see what each variable is being used for. 
+Don't be afraid to give your variables longer names. Clarity for the user or other programmers is incredibly valuable. I
+also space things out nicely so you can see everything clearly (spaces between <code>=</code> or function calls, or between
+parentheses).
+
+As a challenge, revisit some of your first programs 1 year from now, and see if you can still understand what the code
+does. 
+:::
+
+Alright, if you're reading this, then chances are you've tried your own code, and it works! OR... you copied and pasted what I had 
+in the code block... right? But, you ran into an issue. Your <code>print</code> statement isn't returning the sum of the 3 
+values the way you expected it to happen. Instead, it appears to be putting the 3 values together, but not summing them. 
+
+How frustrating! But we did everything *perfectly* right? Maybe not... 
+
+<details>
+<summary>💡 **Reveal PROPER Code Solution - Try fixing this on your own first!**</summary>
+```python
+# Functions
+def addThreeNumbers(num1, num2, num3):
+    return num1 + num2 + num3
+
+# Main Method
+print("The following code will prompt you to enter 3 values")
+
+user_input_1 = int( input( "Enter first number: " )) # get first number
+user_input_2 = int( input( "Enter second number: " )) # get second number
+user_input_3 = int( input("Enter third number: " )) # get third number
+
+print(addThreeNumbers(user_input_1, user_input_2, user_input_3))
+```
+</details>
+
+"Wait... Rob, isn't that the same as above?"
+
+Nope! Take a *close* look at each of the <code>user input</code> variables. Notice anything? 
+
+Perhaps you picked up on the <code>int</code> casting that I wrapped around each of the <code>input</code>
+functions. That allowed us to convert the string inputs into integers, which can then be added properly
+in the function. 
 
 #### Thanks for checking out the session notes! See you next time.
