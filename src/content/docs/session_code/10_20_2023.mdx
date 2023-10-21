@@ -1,0 +1,132 @@
+---
+title: Oct 20, 2023 - Boolean and Conditional Logic
+description: PASS Session work from Oct 20, 2023.
+sidebar:
+    label: Oct 20 - Boolean and Conditional Logic
+    order: 5
+    # hidden: true
+    badge:
+        text: New
+        variant: caution
+---
+
+During the Friday (Oct 20th) class, boolean and conditional logic was introduced. 
+You will be seeing these types of control structures for the rest of your programming journey,
+and it's important that you start to understand them early. 
+
+Fear not! These concepts can be broken down to two outcomes: <code>True</code> or <code>False</code>.
+
+## PASS Session example
+
+During the PASS Session we were tasked with writing a statement that outputs the outcome 
+of a set of boolean conditions as a string. 
+
+The conditions were the following:
+- if num1 is > num2
+- if num2 is > num1
+- if num1 is == num2
+
+If you attended the session, try to recreate what we did! I have the solution below,
+but one of the most effective ways to learn is to recall the information on your own. 
+Try not to rely on the answers immediately. 
+
+First, let's start by understanding the problem. We want to output a specific 
+answer for each of the conditions listed above. For example, if the condition 
+is "if num1 is > num2" then we want to change our output to something that reflects 
+that, such as "num1 is GREATER THAN num2". The same can be said for the other two
+conditions. Try those yourself! 
+
+Next, we need to create variables to store values. Ideally, we name them as closely
+to our problem as possible, therefore <code>num1</code> and <code>num2</code> are 
+good choices for our problem. You can choose to store any numbers you think are 
+appropriate in these variables. 
+
+Lastly, we must structure our <code>if</code> statements. Remember, when using an <code>if</code>
+statement we must follow the structure below:
+
+```python
+# IF comes first
+if (condition goes here):
+    code block goes here
+# ELSE IF can be in the middle or at the end
+elif (condition goes here):
+    code block goes here
+# ELSE can only be at the end
+else:
+    code block goes here
+```
+
+The <code>if</code> must come first, then as many <code>elif</code> statements (else if)
+as you need for your code, and you may use one <code>else</code> statement but it must
+come at the end, and it will not have a condition. Typically, the <code>else</code> is
+used as a catch-all for the remaining conditions that do not necessarily need to be 
+specified. Consider the example below:
+
+```python
+# Example where an ELSE statement is useful
+num = 5
+if num == 5:
+    print("num is 5")
+else:
+    print("num is NOT 5")
+```
+
+With that information, I think you're ready to code out the solution! So give it a try,
+and if you get stuck there is a solution below. BUT, try to give it a go on your own
+before depending on it.
+
+<details>
+<summary>💡 **Reveal Code Solution - Try it on your own first!**</summary>
+```python
+# Need 2 integer variables
+# Change these numbers based on the outcome you want
+num1 = 3 
+num2 = 3
+
+# Need to store our output/answer
+answer = ""
+
+# We need IF STATEMENTS
+if num1 > num2:
+    answer = "num1 is GREATER THAN num2"
+elif num2 > num1:
+    answer = "num2 is GREATER THAN num1"
+else:
+    answer = "num1 is EQUAL TO num2"
+
+# Output our answer
+print(answer)
+```
+</details>
+
+## CodingBat - cigar_party
+
+We also worked on a CodingBat problem during the session. My solution is below, so for an added challenge,
+try to go through the code and comment each line and why each line is the way it is. Can you make my code
+shorter? Did you know that it's possible to get this down to 4 or 5 lines of code?
+
+
+Here is my modified solution for the [coding bat problem]('https://codingbat.com/prob/p195669') from the PASS Session:
+
+```python
+def cigar_party( cigars, is_weekend ):
+    # Comment here
+    answer = False
+    # Comment here
+    if is_weekend == True and cigars >= 40:
+        answer = True
+    # Comment here
+    elif is_weekend == False:
+        # Comment here
+        if ( cigars >= 40 and cigars <= 60 ):
+            answer = True
+        # Comment here
+        elif ( cigars < 40 or cigars > 60 ):
+            answer = False
+    # Comment here
+    return answer
+```
+
+
+
+#### Thanks for checking out the session notes! See you next time.
