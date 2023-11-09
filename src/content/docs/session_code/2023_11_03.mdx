@@ -1,0 +1,206 @@
+---
+title: Nov 3, 2023 - Finding Primes
+description: PASS Session work from Nov 3, 2023.
+sidebar:
+    label: Nov 3 - Finding Primes
+    order: 5
+    # hidden: true
+    badge:
+        text: New
+        variant: caution
+---
+
+## Prime Numbers
+
+:::caution[Prime Code]
+I will leave the prime code off of this page until after your exam. It is 
+**very important** that you learn to navigate a problem without a solution.
+Use all of your resources to try and work through this. For those of you who 
+have been attending my PASS Sessions, you should have a very good idea of 
+how to approach this. 
+
+***You can do it! I believe in you.***
+:::
+
+In preparation for your test, your instructor has requested that you attempt to
+solve the problem involving prime numbers. The task is to loop through a set of 
+numbers and identify the primes that are in that given set. There are a handful
+of ways to accomplish this.
+
+So, what is a prime number? It's a number that is **only** divisible by itself 
+and the number 1. Can you think of any examples of prime numbers that stick out 
+immediately? 
+
+<details>
+<summary>💡 **Reveal Prime Numbers - Try it on your own first!**</summary>
+```python
+# Prime Numbers:
+2, 3, 5, 7, 11, 13, 17, 19 etc. 
+
+# Not Prime Numbers:
+4, 6, 8, 9, 10, 12, 14, 15 etc.
+
+```
+</details>
+
+## Why is this problem important?
+
+Understanding how to check if a number is prime is important in programming
+fundamentals because it showcases your ability to implement a variety of operations
+and control structures. This could include <code>for loops, while loops, modulus, 
+if statements, and or functions</code>.
+
+## Let's code!
+
+### Basic Structuring 
+
+There's a couple of strategies that we can use to approach this problem. 
+First, we should consider how we are "getting" the numbers that we want to evaluate.
+Are we using a list? Are we importing a file? Are we just looping through a range
+of set values? Lots of choice! For the purpose of this example, we are going to 
+just loop through a range of values that we hard code into our program. 
+
+Here's a basic loop that prints every value from 0 to 100. 
+
+```python
+# Acceptable arguments for range():
+# range(stop)
+# range(start, stop[, step])
+
+for i in range(0, 101):
+    print(i)
+```
+
+Let's make this <code>for loop</code> more descriptive! 
+
+```python
+# changed name of variable i
+for number_to_test in range(0, 101):
+    print(number_to_test)
+```
+
+Notice that I only changed the name of <code>i</code> so that it is more accurately
+representing the problem. 
+
+Earlier, we said that prime numbers include 2, 3, 5, 7.. etc. This means that we start
+at 2 and go up from there. 0 and 1 are **not** prime.
+
+```python
+# modified range to reflect valid numbers
+for number_to_test in range(2, 101):
+    print(number_to_test)
+```
+
+So how do we check each number in the range if it's prime? What type of control structure
+will allow us to do this? Let's revisit the example of prime numbers from above:
+
+```python
+# Prime Numbers:
+2, 3, 5, 7, 11, 13, 17, 19 etc. 
+
+# Not Prime Numbers:
+4, 6, 8, 9, 10, 12, 14, 15 etc.
+
+# How to think about this:
+4 / 1 = 4
+4 / 2 = 2 # NOT PRIME
+4 / 3 = 1.33
+4 / 4 = 1 
+
+```
+
+Consider the following: 
+1. number_to_test = 2:
+    - 2 / 1 = 2
+    - 2 / 2 = 1
+    - **2 is prime!** 
+2. number_to_test = 3:
+    - 3 / 1 = 3
+    - 3 / 2 = 1.5 -> NOT EVENLY DIVISIBLE BY DIVISOR
+    - 3 / 3 = 1
+    - **3 IS PRIME**
+3. number_to_test = 4:
+    - 4 / 1 = 4
+    - 4 / 2 = 2 -> **EVENLY DIVISIBLE BY DIVISOR... So... NOT PRIME!**
+    - No need to even check if 4 / 3 or 4 / 4
+
+How do we code this? Let's think for a moment. The numbered items in that list 
+all correspond to some of the values of <code>number_to_test (2, 3 and 4)</code> .
+Then, the bullets below each value correspond to another set of values, each starting
+from <code>1</code>. So, we check if each value in <code>number_to_test</code> is 
+divisible by a divisor up to <code>number_to_test</code>, and once we get to a 
+divisor that breaks our "prime" rule, we want to stop checking anything past that divisor.
+For example, once we found that 4 / 2 = 2, we know it's not prime - so why bother
+checking if 4 / 3 is possible? There's no point! It's meaningless once we have flagged
+a number as "not prime". Additionally, we want to avoid checking if numbers are divisible
+by 1, since every number is. 
+
+<details>
+<summary>💡 **Removed number_to_test / 1** </summary>
+1. number_to_test = 2:
+    - ~~2 / 1 = 2~~
+    - 2 / 2 = 1
+    - **2 is prime!** 
+2. number_to_test = 3:
+    - ~~3 / 1 = 3~~
+    - 3 / 2 = 1.5 -> NOT EVENLY DIVISIBLE BY DIVISOR
+    - 3 / 3 = 1
+    - **3 IS PRIME**
+3. number_to_test = 4:
+    - ~~4 / 1 = 4~~
+    - 4 / 2 = 2 -> **EVENLY DIVISIBLE BY DIVISOR... So... NOT PRIME!**
+    - No need to even check if 4 / 3 or 4 / 4
+</details>
+
+Also, have you thought about what type of variable can be used to decide if a number is 
+prime or not? I hope so! It has to do with <code>true</code> or <code>false</code>. I'm
+so confident that you know the answer that I won't tell you! 
+
+From an operator perspective,
+we must implement the <code>%</code> to check if a number is perfectly divisible by another.
+If a number is perfectly divisible by another, the result will be <code>0</code> since <code>%
+</code> provides the remainder for a given division operation. 
+
+Lastly, I'll ask you again... What type of control structure do we need inside our <code>
+for loop</code>? 
+
+<details>
+<summary>💡 **Reveal Answer**</summary>
+Another <code>for loop</code>!
+</details>
+
+:::tip[Challenging Yourself]
+You can see that I am pushing you to learn here. It may seem tough, but it's so important
+that you are able to retrieve or find information on your own. Keep up the good work. You
+will figure this out. I promise, I have been in your position before and I know things can
+feel nearly impossible at times. Keep working and you will get there. 
+:::
+
+### Implementing our Plan
+
+We have decided we need the following: a <code>for loop</code> inside a <code>for loop</code>
+and some sort of <code>boolean</code> to decide if we have a prime number or not. 
+
+The structure of your code should look something like this:
+
+```python
+for number_to_test in range(2, 101):
+
+    prime variable = false
+
+    for loop to check all numbers up to number_to_test
+
+        if statement to check if prime
+            prime variable = true
+
+    if prime variable is true
+        print prime
+```
+
+At this point, we have worked up to a nearly complete structure for the code. 
+I am confident you can complete it. I'll post the remainder of the code after your test. 
+Like I said, it's important to work towards the solution without seeing mine for now. 
+
+Good luck! You can do this!
+
+#### Thanks for checking out the session notes! See you next time.
