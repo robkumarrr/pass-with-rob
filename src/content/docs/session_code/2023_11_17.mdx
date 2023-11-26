@@ -1,0 +1,105 @@
+---
+title: Nov 20, 2023 - List Basics
+description: PASS Session work from Nov 20, 2023.
+sidebar:
+    label: Nov 20 - List Basics
+    order: 6
+    # hidden: true
+    badge:
+        text: New
+        variant: caution
+---
+
+## Lists
+
+Lists are AWESOME! This is one of the most important data structures you can deal with in 
+programming. They are commonplace in both your client-side course and your java course, coming 
+up next term. 
+
+How can we describe a list? Well, the simplest way is to think about a bucket or a box that
+contains a variety of items. These items can be the same, or different, and they might even
+come packaged with other items. 
+
+Programmatically, we can initiate an empty list like so:
+
+```python
+my_list = []
+```
+
+Not so bad, right? Let's add some items to this list. 
+
+```python
+my_list = ["apple", "banana", "orange", "grapes"]
+```
+
+Notice that each item in the list is separated by a comma. For this example, we'll stick to 
+using strings as the datatype, but you can also mix the datatypes within the list. 
+
+For example this is completely valid:
+
+```python
+my_other_list = [1, 2, "apple", 4.5, "car", 5, "computer"]
+```
+
+Pretty neat, huh? I think so! This adds flexibility to our programming, which can be useful in 
+a variety of contexts. Can you think of a reason why we might want to store two different data 
+types in a list? Perhaps you want to store a movie and its rating, or a restaurant and its rating,
+or a product, its inventory and price, or a name, address, phone number, age and other pieces of information.
+
+## Accessing Data in our List
+
+A list is useless if we can't access the data within it! Remember, python is a 0-indexed language, meaning
+that we start our counts at 0, and move up until n iterations is reached. Check out the code snippet
+below to see how we can access the items in <code>my_list</code> below.
+
+```python
+my_list = ["apple", "banana", "orange", "grapes"]
+
+# Access first item: 
+my_list[0] 
+
+# Access second item:
+my_list[1]
+
+# Access third item:
+my_list[2]
+
+# Access fourth item:
+my_list[3]
+```
+
+If you want to display them, simpy use a <code>print()</code> function for each of those lines. 
+
+**Example:**
+```python
+# Print first item: 
+print(my_list[0]) 
+```
+
+I think you may agree with me... manually typing out each item in the list is not efficient. Can you think of
+a way we could *go through our list*? 
+
+Did you guess a loop? I hope so! Because that's exactly what we need. 
+
+Let's try it out: 
+
+```python
+my_list = ["apple", "banana", "orange", "grapes"]
+
+# Note: "item" can be named something else if you want
+for item in my_list:
+    print(item)
+```
+
+Alternatively, you can loop through a list like so:
+
+```python
+for i in range(0, len(my_list)):
+    print(my_list[i])
+```
+
+## List Methods
+
+
+
+#### Thanks for checking out the session notes! See you next time.

@@ -5,21 +5,15 @@ sidebar:
     label: Nov 3 - Finding Primes
     order: 5
     # hidden: true
-    badge:
-        text: New
-        variant: caution
+    # badge:
+    #     text: New
+    #     variant: caution
 ---
 
 ## Prime Numbers
-
+ 
 :::caution[Prime Code]
-I will leave the prime code off of this page until after your exam. It is 
-**very important** that you learn to navigate a problem without a solution.
-Use all of your resources to try and work through this. For those of you who 
-have been attending my PASS Sessions, you should have a very good idea of 
-how to approach this. 
-
-***You can do it! I believe in you.***
+***The complete prime code is at the bottom of this page.***
 :::
 
 In preparation for your test, your instructor has requested that you attempt to
@@ -185,22 +179,26 @@ The structure of your code should look something like this:
 
 ```python
 for number_to_test in range(2, 101):
-
     prime variable = false
-
     for loop to check all numbers up to number_to_test
-
         if statement to check if prime
             prime variable = true
-
     if prime variable is true
         print prime
 ```
 
-At this point, we have worked up to a nearly complete structure for the code. 
-I am confident you can complete it. I'll post the remainder of the code after your test. 
-Like I said, it's important to work towards the solution without seeing mine for now. 
+## Completed Prime Code
 
-Good luck! You can do this!
+```python
+for number_to_test in range(2, 101):
+    is_prime = True # consider number prime until we determine that it isn't
+    for divisor in range(2, int(number_to_test ** 0.5) + 1):
+        if number_to_test % divisor == 0:
+            is_prime = False
+            break
+    if is_prime == True:
+        print(f"{number_to_test} is Prime")
+
+```
 
 #### Thanks for checking out the session notes! See you next time.
