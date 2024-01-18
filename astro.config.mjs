@@ -20,7 +20,12 @@ export default defineConfig({
 				},
 				{
 					label: 'PASS Sessions - Fall 2023',
-					autogenerate: { directory: 'session_code'},
+					collapsed: true,
+					autogenerate: { directory: 'session_code_2023'}
+				},
+				{
+					label: 'PASS Sessions - Winter 2024',
+					autogenerate: { directory: 'session_code_2024'},
 				},
 			],
 			logo: {
