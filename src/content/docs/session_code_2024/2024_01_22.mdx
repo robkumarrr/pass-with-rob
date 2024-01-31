@@ -1,0 +1,90 @@
+---
+title: Week of Jan 22
+description: PASS Session work from the week of Jan 22, 2024.
+sidebar:
+    label: Week of Jan 22
+    order: 1
+    # hidden: true
+    badge:
+       text: New
+       variant: caution
+---
+
+## Jan 23, 2024
+### Random Number Generation and Objects
+
+Hello! I hope you folks found this week of content useful. During this session on Zoom we learned
+how to use the [<code>Random</code> class](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html), 
+which was useful in generating random (or, pseudorandom) values!
+
+In the example below, you'll see the Main class, and below that you will see the RandomNumberGenerator
+class. Please have a good luck at both, and try your best to read through what's going on! That's 
+always the first step. Reading code will become an incredible asset when you progress through the 
+semesters in this program. 
+
+**Unfortunately, I have had limited time so I will briefly explain the implementation below and leave 
+it up to you to ask questions (robert.kumar@mohawkcollege.ca) if any should arise . Also, keep in mind that I will not be uploading 
+everything to the website.**
+
+In essence, the RandomNumberGenerator class gives us the ability to create objects that have a method 
+called "roll". The "roll" method let's us return a random value within a given range. Read more 
+[here](https://docs.oracle.com/javase/8/docs/api/java/util/Random.html#nextInt-int-). The Main class
+is where we created an array of 100,000 of those RandomNumberGenerator objects. Then, we created individual
+RandomNumberGenerator objects for every position in that array.
+
+:::tip[Documentation]
+I know I've mentioned this before, but make sure you get comfortable with reading documentation. 
+There are a ton of incredible resources out there that can answer quick questions, but when you read
+documentation, you start to build up resilience. There will be times that you will see error codes 
+that don't come up too often. So, Google might have limited solutions! Sometimes the best way to solve
+these issues is to follow the breadcrumbs through the documentation. 
+:::
+
+#### Main.java:
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        RandomNumberGenerator[] rngArray = new RandomNumberGenerator[100_000];
+        int maxValue = 11;
+        int[] valueCounter = new int[maxValue - 1];
+
+        for (int i = 0; i < rngArray.length; i++) {
+            rngArray[i] = new RandomNumberGenerator(maxValue);
+        }
+
+        int valueWeRolled;
+        for (RandomNumberGenerator rngObject : rngArray) {
+            valueWeRolled = rngObject.roll();
+            valueCounter[valueWeRolled - 1]++;
+        }
+
+        for (int i = 0; i < valueCounter.length; i++)
+            System.out.printf("Value of %d occurred %d times\n", i + 1, valueCounter[i]);
+    }
+}
+```
+
+#### RandomNumberGenerator.java:
+```java
+import java.util.Random;
+
+public class RandomNumberGenerator {
+
+    Random rand = new Random();
+    int objectMax;
+
+    public RandomNumberGenerator(int max) {
+        objectMax = max;
+    }
+
+    public int roll() {
+        int randomValue = 0;
+        randomValue = rand.nextInt(1, 6);
+        return randomValue;
+    }
+}
+
+```
+
+#### Thanks for checking out the session notes! See you next time.
