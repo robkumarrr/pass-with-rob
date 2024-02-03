@@ -3,13 +3,159 @@ title: Week of Jan 29
 description: PASS Session work from the week of Jan 29, 2024.
 sidebar:
     label: Week of Jan 29
-    order: 1
+    order: 2
     # hidden: true
     badge:
        text: In Progress
        variant: danger
 ---
 
-## Coming Soon
+## Jan 30, 2024
+### OOP & Model-View Basics
+
+In object-oriented programming there are some concepts that will continue to come up.
+Over time you will notice that these concepts are true even in other areas of programming. 
+Separating the "model" from a "view" is critical in achieving a solid understanding of 
+object oriented programming. 
+
+Let's walk through an example. Say you're watching TV, and you decide that you want to 
+turn on an NFL game and relax a bit. You'll interact with the TV (probably with a remote)
+to search for that channel and select the channel to want to watch. While you're watching
+the game, you aren't seeing how the game is being broadcast, you can't see how the TV's
+software is working, and you don't have control over the outcome of the NFL game. In this 
+example, we can think of the the TV as our "view" and the NFL game with the two teams as
+our "model". Now, this is a massively over-simplified version of what really happens, but
+I hope this gets you thinking about the separation of model and view. 
+
+A few other examples include:
+- Playing the Nintendo Switch in handheld mode - View: Nintendo Switch - Model: Game Logic
+- Playing a computer game - View: Computer Screen - Model: Game Logic
+- Interacting with a website - View: User Interface - Model: Backend (Logic, Server, Database, API, etc.)
+
+I hope this is starting to clear up. OOP doesn't sink in overnight, so keep working at it! 
+
+### Class "Stuff"
+
+What's a class? Think of it as a *blueprint*.
+What's an object? Think of it as building something *using* the blueprint you have. 
+So, in other words, an object is an instance of some class. 
+
+For example, you may have a blueprint for a house, but that blueprint is on paper and can't 
+actually be used to live in. But, you can use that blueprint to create a house! Or even 
+*multiple* houses! Each house would have a different attributes: address, perhaps a different colour, 
+and even different styles for their windows. Each house is unique from one another, and they all 
+have a specific location in a neighbourhood. To locate each house, there's an address, and that
+address is specifically for one house. This is synonymous to how object references are stored in
+the heap memory.
+
+Think of other examples of "blueprints" and "houses", or in more appropriate words: classes
+and objects. I can think of some extra ones here: businesses, dogs, humans, video games, etc.
+You'll notice that each of these things are generic, but you can have a specific type of each
+thing. So for a dog you may have a dachshund, or perhaps a doberman, or a duck tolling retriever,
+but they're all dogs, right? I hope this is starting to come together. But that's the general
+concept you need to understand to succeed in Java. 
+
+I have an example below from our PASS Session, I hope it helps with understanding how this comes 
+together. Again, if you're struggling, please read the weekly guides! They are very solid for
+learning the overall concepts you need. 
+
+### NFLTeam & Television
+
+Below, you'll see that I have included the code for two classes. You can click on the details
+to reveal the code. Have a look and try to decipher everything that's going on. If you're having
+some trouble, try to review your class notes from the Week 3 and 4 guides. 
+
+#### MODEL: NFL Team Class
+<details>
+<summary>💡 **NFL Team Class Code**</summary>
+```java
+import java.util.Random;
+
+public class NFLTeam {
+    private String name;
+    private String coach;
+    private String captain;
+    private int score;
+    private int wins;
+    private int losses;
+    private static int ID = 0;
+
+    public NFLTeam(String nameVar, String coachVar, String captainVar) {
+        name = nameVar;
+        coach = coachVar;
+        captain = captainVar;
+        ID++;
+    }
+
+    public void setScore(int scoreVar) {
+        score = scoreVar;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String getName() { return name; }
+
+    public boolean playGame(NFLTeam opponent) {
+        Random rand = new Random();
+        boolean wonGame = false;
+        int score1 = 0;
+        int score2 = 0;
+
+        while (score1 == score2) {
+            score1 = rand.nextInt(0, 50);
+            score2 = rand.nextInt(0, 50);
+        }
+
+        setScore(score1);
+        opponent.setScore(score2);
+
+        if (score > opponent.getScore()) {
+            wonGame = true; // win game
+        } else {
+            wonGame = false; // lose game
+        }
+
+        return wonGame;
+    }
+}
+```
+</details>
+
+#### VIEW: Television Class (where our Main method is)
+<details>
+<summary>💡 **Television Class Code**</summary>
+```java
+public class Television {
+    public static void main(String[] args) {
+        System.out.println("TV has been turned on");
+
+        NFLTeam ravens = new NFLTeam("ravens", "harbaugh", "jackson");
+        NFLTeam vikings = new NFLTeam("vikings", "o'connell", "cousins");
+
+        if (ravens.playGame(vikings) == true) {
+            System.out.printf("%s won the game - %s: %d | %s: %d\n", ravens.getName(), ravens.getName(), ravens.getScore(), vikings.getName(), vikings.getScore());
+            System.out.println("Ravens fans, rejoice!!!");
+        } else if (ravens.playGame(vikings) == false) {
+            System.out.printf("%s won the game - %s: %d | %s: %d\n", vikings.getName(), ravens.getName(), ravens.getScore(), vikings.getName(), vikings.getScore());
+            System.out.println("Let's go Vikings!!!!!");
+        }
+
+        System.out.println("TV has been turned off");
+    }
+}
+```
+</details>
+
+:::caution[What's going on here?]
+Here's a challenge. Write out a handful of jot points to describe what's going on within each class, and how these classes relate to one another.
+1. What objects have we created?
+2. How do they interact?
+3. What methods can you see?
+4. What does private and public mean? 
+5. **CHALLENGE -** Create your OWN model and view classes, create a method for the model, and call that method in your view.
+6. **BONUS -** How can I rewrite my constructor in NFLTeam to keep it the same, but simplify it? Hint: *this* might be useful ;)
+:::
 
 #### Thanks for checking out the session notes! See you next time.
