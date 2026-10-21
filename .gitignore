@@ -23,3 +23,5 @@ pnpm-debug.log*
 
 #astro automatically generated files
 README.md
+.vercel
+.env*
